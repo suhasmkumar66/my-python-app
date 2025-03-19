@@ -1,4 +1,4 @@
 from my_module.main import greet
 
 def test_greet():
-    assert greet("Test") == "Greetings, Test!"
+    assert greet("Testing 123") == "Name: Testing123!"
