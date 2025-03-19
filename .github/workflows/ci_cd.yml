@@ -24,16 +24,22 @@ jobs:
       - name: Change working directory
         run: cd ${{ github.workspace }}
 
-      - name: Set up Python Path
+      - name: List workspace contents (again)
+        run: ls -R ${{ github.workspace }}
+
+      - name: Set up Python Path (again)
         run: |
           import sys
           sys.path.append('.')
           print(sys.path)
         shell: python
 
-      - name: Install project (editable)
-        run: pip install -e . || true # Keep this, but allow failure
+      - name: Print Environment Variables
+        run: env
 
-      - name: Run tests with pytest
+      - name: Run test file directly with Python
+        run: python tests/test_main.py
+
+      - name: Run tests with pytest (as before)
         run: pytest tests/test_main.py
         working-directory: ${{ github.workspace }}
