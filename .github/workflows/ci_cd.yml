@@ -21,6 +21,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Change working directory
+        run: cd ${{ github.workspace }}
+
       - name: Run tests with pytest
         run: pytest tests/
 
