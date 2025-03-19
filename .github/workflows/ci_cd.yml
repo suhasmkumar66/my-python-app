@@ -37,6 +37,9 @@ jobs:
       - name: Print Environment Variables
         run: env
 
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+
       - name: Run test file directly with Python
         run: python tests/test_main.py
 
